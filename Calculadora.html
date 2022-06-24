@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> 
+
+	<style type="text/css">
+   body{
+   	       font-family: arial;
+   	       font-size: 1am;
+
+   }
+
+   .principal{
+
+   	   width: 250px;
+   	   height: 450px;
+   	   border: solid 3px black;
+
+   	   margin-left: 800px;
+   	   margin-top: 300px;
+   	   background-color: #2E2E2E;
+   	   box-shadow: 1px 1px 5px #000;
+
+
+   }
+
+   .bt1{
+
+   	width: 50px;
+   	height: 50px;
+   	box-shadow: 1px 1px 1px #000;
+
+   }
+
+   .bt2{
+
+   	width: 212px;
+   	height: 50px;
+   	box-shadow: 1px 1px 1px #000;
+   }
+
+   .bt0{
+
+   	padding: 10px;
+   	margin-left: 5px;
+   	box-shadow: 1px 1px 1px #000;
+   }
+
+  h3{
+  	 text-align: center;
+  	 color: white;
+  	 box-shadow: 1px 1px 1px #000;
+  }
+
+
+	</style>
+	<title>Calculadora Simples</title>
+</head>
+<body>
+
+	<div class="principal">
+		
+		<h3>Calculadora</h3>
+
+
+		<form style="text-align: center;">
+			<input  style="text-align: right; width: 210px; margin-left: 15px;"  type="text" id="resultado" placeholder="0" disabled='disabled' class="form-control resultado">
+		</form>
+
+		<div class="bt0">
+			<button onclick="calculadoraSimples('valor', 7)" value="" class="btn btn-dark btn-lg bt1">7</button>
+			<button onclick="calculadoraSimples('valor', 8)" value="" class="btn btn-dark btn-lg bt1">8</button>
+			<button onclick="calculadoraSimples('valor', 9)" value="" class="btn btn-dark btn-lg bt1">9</button>
+			<button onclick="calculadoraSimples('acao', 'c')" value="" class="btn btn-dark btn-lg bt1">C</button>
+
+		</div>
+
+		<div class="bt0">
+			<button onclick="calculadoraSimples('valor', 4)" value="" class="bt1">4</button>
+			<button onclick="calculadoraSimples('valor', 5)" value="" class="bt1">5</button>
+			<button onclick="calculadoraSimples('valor', 6)" value="" class="bt1">6</button>
+			<button onclick="calculadoraSimples('acao', '+')" value="" class="bt1">+</button>
+
+		</div>
+
+		<div class="bt0">
+			<button onclick="calculadoraSimples('valor', 1)" value="" class="bt1">1</button>
+			<button onclick="calculadoraSimples('valor', 2)" value="" class="bt1">2</button>
+			<button onclick="calculadoraSimples('valor', 3)" value="" class="bt1">3</button>
+			<button onclick="calculadoraSimples('acao', '-')" value="" class="bt1">-</button>
+
+		</div>
+
+		<div class="bt0">
+			<button onclick="calculadoraSimples('valor', 0)" value="" class="bt1">0</button>
+			<button onclick="calculadoraSimples('acao', '.')" value="" class="bt1">.</button>
+			<button onclick="calculadoraSimples('acao', '/')" value="" class="bt1">/</button>
+			<button onclick="calculadoraSimples('acao', '*')" value="" class="bt1">*</button>
+
+		</div>
+
+		<div class="bt0">
+			<button onclick="calculadoraSimples('acao', '=')" value="" class="bt2">=</button>
+			
+
+		</div>
+
+	</div>   <!-- Principal-->
+
+	<script type="text/javascript">
+		
+     
+ function calculadoraSimples(tipo, valor){
+
+
+    if (tipo === 'valor') {
+
+    	let segundoDigito = document.getElementById('resultado').value;
+
+    	document.getElementById('resultado').value = segundoDigito + valor;
+    }
+
+        if (tipo === 'acao') {
+
+        	if (valor === '+' || valor === '-' || valor == '*' || valor === '/' || valor === '.' ) {
+
+        		document.getElementById('resultado').value += valor;
+        	}
+
+        	if (valor === 'c') {
+
+        		document.getElementById('resultado').value = '';
+        	}
+
+        	 if (valor === '=') {
+
+        	 	let calculando = eval(document.getElementById('resultado').value);
+
+        	 	document.getElementById('resultado').value = calculando;
+        	 }
+        }  //acao
+ }  // calculadoraSimples
+
+
+	</script>
+
+</body>
+</html>
